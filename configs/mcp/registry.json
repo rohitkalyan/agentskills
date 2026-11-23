@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-20",
+  "servers": [
+    {
+      "id": "framework_local",
+      "category": "Framework guidance",
+      "source": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "reviewed_on": "2026-11-21",
+      "status": "tested-local",
+      "notes": "Node SDK guidance server: bundled public skills only; no project files, shell, credentials or models.",
+      "config": {
+        "command": "{node}",
+        "args": [
+          "{toolkit}/lib/mcp-server.mjs"
+        ],
+        "enabled_tools": [
+          "skill_catalog",
+          "read_skill",
+          "framework_info"
+        ],
+        "enabled": true,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      }
+    },
+    {
+      "id": "framework_docs",
+      "category": "Official OpenAI documentation",
+      "source": "https://developers.openai.com/learn/docs-mcp",
+      "reviewed_on": "2026-11-20",
+      "status": "template",
+      "notes": "Hosted service is not version pinned. Empty tool allowlist: discover current schemas before enabling.",
+      "config": {
+        "url": "https://developers.openai.com/mcp",
+        "enabled_tools": [],
+        "enabled": false,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      }
+    },
+    {
+      "id": "framework_filesystem",
+      "category": "Scoped local source files",
+      "source": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "reviewed_on": "2026-11-20",
+      "status": "template",
+      "notes": "Restricts root to src. Client allowlists are not an OS sandbox; never put secrets under an exposed root.",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem@2.4.0",
+          "{repo}/src"
+        ],
+        "enabled_tools": [
+          "read_text_file",
+          "list_directory"
+        ],
+        "enabled": false,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      }
+    },
+    {
+      "id": "framework_git",
+      "category": "Local repository inspection",
+      "source": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+      "reviewed_on": "2026-11-20",
+      "status": "catalog-only",
+      "notes": "Use native Git shell commands and the bundled main-freshness guard. No Python MCP server is installed. Select an external deployment only when needed."
+    },
+    {
+      "id": "framework_github",
+      "category": "Repository and pull request context",
+      "source": "https://github.com/github/github-mcp-server",
+      "reviewed_on": "2026-11-20",
+      "status": "template",
+      "notes": "Fine-grained read-only token scoped to selected repositories; hosted server may change independently.",
+      "config": {
+        "url": "https://api.githubcopilot.com/mcp/",
+        "bearer_token_env_var": "GITHUB_MCP_TOKEN",
+        "enabled_tools": [
+          "get_file_contents",
+          "search_code",
+          "pull_request_read",
+          "list_branches"
+        ],
+        "enabled": false,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      },
+      "required_env": [
+        "GITHUB_MCP_TOKEN"
+      ]
+    },
+    {
+      "id": "framework_playwright",
+      "category": "Browser flow debugging",
+      "source": "https://github.com/microsoft/playwright-mcp",
+      "reviewed_on": "2026-11-20",
+      "status": "template",
+      "notes": "Isolated temporary browser profile. Browser navigation can send network requests; avoid authenticated production sessions.",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@playwright/mcp@0.0.86",
+          "--isolated",
+          "--headless"
+        ],
+        "enabled_tools": [
+          "browser_navigate",
+          "browser_snapshot",
+          "browser_console_messages",
+          "browser_network_requests",
+          "browser_close"
+        ],
+        "enabled": false,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      }
+    },
+    {
+      "id": "framework_tavily",
+      "category": "Web research",
+      "source": "https://github.com/tavily-ai/tavily-mcp",
+      "reviewed_on": "2026-11-20",
+      "status": "template",
+      "notes": "Queries leave this computer. Restrict research to intended public data; provider charges may apply.",
+      "config": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "tavily-mcp@0.2.22"
+        ],
+        "env_vars": [
+          "TAVILY_API_KEY"
+        ],
+        "enabled_tools": [
+          "tavily-search"
+        ],
+        "enabled": false,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      },
+      "required_env": [
+        "TAVILY_API_KEY"
+      ]
+    },
+    {
+      "id": "framework_qdrant",
+      "category": "Vector retrieval and RAG",
+      "source": "https://github.com/qdrant/mcp-server-qdrant",
+      "reviewed_on": "2026-11-20",
+      "status": "catalog-only",
+      "notes": "Optional retrieval service reference. Configure a separately managed service/endpoint if needed; no Python server or runtime is installed by this toolkit.",
+      "required_env": [
+        "QDRANT_URL",
+        "QDRANT_API_KEY",
+        "COLLECTION_NAME"
+      ]
+    },
+    {
+      "id": "framework_sonarqube",
+      "category": "Code quality and security findings",
+      "source": "https://github.com/SonarSource/sonarqube-mcp-server",
+      "reviewed_on": "2026-11-20",
+      "status": "template",
+      "notes": "Image 1.33.0.5260 pinned by digest. Requires user token with appropriate project permissions. Reading findings is distinct from running a quality gate.",
+      "config": {
+        "command": "docker",
+        "args": [
+          "run",
+          "--rm",
+          "-i",
+          "-e",
+          "SONARQUBE_URL",
+          "-e",
+          "SONARQUBE_TOKEN",
+          "-e",
+          "SONARQUBE_READ_ONLY=true",
+          "-e",
+          "TELEMETRY_DISABLED=true",
+          "sonarsource/sonarqube-mcp@sha256:305d7213bf1855227faeab4379145589f1358a9de61ead1f8b4c46f3dac18a52"
+        ],
+        "env_vars": [
+          "SONARQUBE_URL",
+          "SONARQUBE_TOKEN"
+        ],
+        "enabled_tools": [
+          "search_sonar_issues_in_projects",
+          "get_project_quality_gate_status",
+          "get_file_coverage_details"
+        ],
+        "enabled": false,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      },
+      "required_env": [
+        "SONARQUBE_URL",
+        "SONARQUBE_TOKEN"
+      ]
+    },
+    {
+      "id": "framework_sentry",
+      "category": "Runtime errors and observability",
+      "source": "https://mcp.sentry.dev/",
+      "reviewed_on": "2026-11-20",
+      "status": "template",
+      "notes": "OAuth and organization/project scope required. Replace with a scoped URL and inspect tool schemas before setting the initially empty allowlist.",
+      "config": {
+        "url": "https://mcp.sentry.dev/mcp",
+        "enabled_tools": [],
+        "enabled": false,
+        "startup_timeout_sec": 30,
+        "tool_timeout_sec": 30
+      }
+    },
+    {
+      "id": "framework_database",
+      "category": "SQL database access",
+      "source": "https://github.com/googleapis/mcp-toolbox",
+      "reviewed_on": "2026-11-20",
+      "status": "catalog-only",
+      "notes": "Catalog only: choose PostgreSQL/other source, pin a release, define approved parameterized queries and read-only database roles. No arbitrary SQL or production DSN template."
+    },
+    {
+      "id": "framework_redis",
+      "category": "Cache and session infrastructure",
+      "source": "https://github.com/redis/mcp-redis",
+      "reviewed_on": "2026-11-20",
+      "status": "catalog-only",
+      "notes": "Catalog only: select a pinned release and Redis ACL limited to intended keys/commands before configuring a server. Do not expose all session keys."
+    },
+    {
+      "id": "framework_semgrep",
+      "category": "Additional source analysis",
+      "source": "https://github.com/semgrep/semgrep/tree/develop/cli/src/semgrep/mcp",
+      "reviewed_on": "2026-11-20",
+      "status": "catalog-only",
+      "notes": "Catalog only: MCP is maintained within the Semgrep CLI. Select vetted rules, pinned CLI and upload policy; Bandit and dependency audit already run locally."
+    },
+    {
+      "id": "framework_google_cloud",
+      "category": "Cloud operations",
+      "source": "https://docs.cloud.google.com/mcp/overview",
+      "reviewed_on": "2026-11-20",
+      "status": "catalog-only",
+      "notes": "Catalog only: select service endpoint, project, IAM and workload identity; provider-specific operations and billing need explicit scope."
+    },
+    {
+      "id": "framework_dory",
+      "category": "SQL investigation workspace",
+      "source": "https://github.com/dorylab/skills",
+      "reviewed_on": "2026-11-21",
+      "status": "catalog-only",
+      "notes": "Selected skill installed locally; Dory runtime/MCP not installed or connected. Choose Desktop, stdio or hosted deployment first. Read-only SQL can still persist Agent Runs, SQL tabs and result snapshots. Confirm connection scope and minimize saved data."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+reports/
+coverage/
+.context/local/
+.agent-skills.install.lock
+.codex/config.toml
+.env
+.env.*
+.DS_Store
+npm-debug.log*

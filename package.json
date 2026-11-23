@@ -1,0 +1,22 @@
+{
+  "name": "agent-skills-toolkit",
+  "version": "0.5.0",
+  "private": true,
+  "description": "One npm install for coding skills, agents, rules, hooks and MCP guidance",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "bin": { "agent-skills": "bin/agent-skills.mjs" },
+  "files": ["bin", "lib", "install.sh", "scripts/run.sh", ".agents/skills", ".codex/agents", "configs", "rules", "docs", "README.md", "npm-shrinkwrap.json"],
+  "scripts": {
+    "check": "node scripts/validate.mjs && node --test",
+    "test": "node --test",
+    "audit:deps": "npm audit --omit=dev",
+    "pack:check": "node scripts/verify-package.mjs",
+    "prepublishOnly": "node -e \"throw new Error('Local package only; publication requires a deliberate release change')\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "smol-toml": "1.9.1",
+    "yaml": "2.9.1"
+  }
+}

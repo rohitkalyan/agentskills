@@ -1,0 +1,49 @@
+{
+  "reviewed_on": "2026-11-21",
+  "sitemaps": [
+    {
+      "url": "https://www.skills.sh/sitemap-skills-1.xml",
+      "sha256": "bb22c8e845956f2bc695f6b9a7b5ba4f0cb10929c1ea8fc78e4631316b29baaa",
+      "count": 10000
+    },
+    {
+      "url": "https://www.skills.sh/sitemap-skills-2.xml",
+      "sha256": "f208e0b357d3fb22e230cf29499befb9798ffd931fbbe655469cec1987a8043d",
+      "count": 10000
+    }
+  ],
+  "unique_skill_urls": 20000,
+  "filter_terms": [
+    "python",
+    "adk",
+    "fastapi",
+    "pytest",
+    "hypothesis",
+    "property-based",
+    "security",
+    "vulnerab",
+    "sql",
+    "database",
+    "observability",
+    "opentelemetry",
+    "llm",
+    "rag",
+    "mcp",
+    "debug",
+    "architecture",
+    "streaming",
+    "async",
+    "performance",
+    "dory"
+  ],
+  "matching_skill_urls": 1107,
+  "scope": "All URLs in the two skill sitemaps published by skills.sh on the review date; URL metadata screening, not full-content auditing of the entire platform.",
+  "entrypoints_downloaded": 20,
+  "entrypoints_fully_read": 11,
+  "adopted_skills": 4,
+  "limitations": [
+    "Sitemaps are not guaranteed to enumerate the entire live catalog.",
+    "The documented full catalog API requires Vercel OIDC; no account was linked.",
+    "No skills CLI telemetry, remote databases or vendor installers were invoked."
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "name": "dory",
+      "repository": "https://github.com/dorylab/skills",
+      "commit": "5066789e2e7720b3c677070054598692887a3bbd",
+      "upstream_path": "plugins/dory/skills/dory",
+      "license": "Apache-2.0",
+      "license_evidence": "https://github.com/dorylab/skills/blob/5066789e2e7720b3c677070054598692887a3bbd/plugins/dory/.codex-plugin/plugin.json",
+      "reviewed_on": "2026-11-21",
+      "review_scope": "All retained instructions, references and assets inspected; no executable helper scripts.",
+      "status": "adapted-project-skill",
+      "changes": [
+        "Narrow discovery to tasks that choose Dory.",
+        "Explain workspace persistence separately from database read-only SQL.",
+        "Replace unpinned installer examples with version/provenance setup guidance; no setup executed.",
+        "Include Apache-2.0 text; the pinned plugin manifest declares this license although the repository has no root LICENSE."
+      ],
+      "files": {
+        "LICENSE": {
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "upstream_sha256": null
+        },
+        "SKILL.md": {
+          "sha256": "03b39898d7d27d6785652f0b98dbc8bb82c87e9aa4d1e6ba622bfd42df4677a2",
+          "upstream_sha256": "ce4e56803e8c93ef6d6fe58575452411219a5fc32ebf34b98703083e2615a78f"
+        },
+        "agents/openai.yaml": {
+          "sha256": "ea73f552d254134a2cd40e6fadf8e0e27738ea0f2e0c5d74ecdb9fdb53474cd1",
+          "upstream_sha256": "ea73f552d254134a2cd40e6fadf8e0e27738ea0f2e0c5d74ecdb9fdb53474cd1"
+        },
+        "examples/compare-schema-before-migration.md": {
+          "sha256": "316e5496e26ca5f8f7d696fcbfd24f7c4d9d38426fdec66dcc17b11d77d3528a",
+          "upstream_sha256": "316e5496e26ca5f8f7d696fcbfd24f7c4d9d38426fdec66dcc17b11d77d3528a"
+        },
+        "examples/create-analysis-workspace.md": {
+          "sha256": "f9b84ab44ba05fe6672c1830cf75063b73745a179fb7c9402a5d3fac25b8dc7a",
+          "upstream_sha256": "f9b84ab44ba05fe6672c1830cf75063b73745a179fb7c9402a5d3fac25b8dc7a"
+        },
+        "examples/debug-production-query.md": {
+          "sha256": "d153cca16d67e195ec9c174bd81b5a1e059b845bcca63645cfcdc34b26379333",
+          "upstream_sha256": "d153cca16d67e195ec9c174bd81b5a1e059b845bcca63645cfcdc34b26379333"
+        },
+        "examples/explore-unknown-schema.md": {
+          "sha256": "6b487e1f73ae7adcc5c76e02ae0ca2eec5332e726dc3ec12ea9ba0e79e30406a",
+          "upstream_sha256": "6b487e1f73ae7adcc5c76e02ae0ca2eec5332e726dc3ec12ea9ba0e79e30406a"
+        },
+        "references/mcp-setup.md": {
+          "sha256": "25d1892e1cd347d1ccd16cd36ef2f7cb2ca7f765512b1235c86c45c3edee02ac",
+          "upstream_sha256": "774f78bbf6f9ee6154dfd1f5445ab2670a1fd0581309837f639df49a0078b85e"
+        }
+      }
+    },
+    {
+      "name": "property-based-testing",
+      "repository": "https://github.com/trailofbits/skills",
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
+      "upstream_path": "plugins/property-based-testing/skills/property-based-testing",
+      "license": "CC-BY-SA-4.0",
+      "license_evidence": "https://github.com/trailofbits/skills/blob/149d7b21f4067765b82e67029730b42d228ef4b4/LICENSE",
+      "reviewed_on": "2026-11-21",
+      "review_scope": "All retained instructions, references and assets inspected; no executable helper scripts.",
+      "status": "adapted-project-skill",
+      "changes": [
+        "Remove unsupported effort frontmatter.",
+        "Correct contradictory-assumption and filtering-health-check claims.",
+        "Align dependency/refactoring decisions with already authorized task scope.",
+        "Clarify testing of mutable state/globals and bounded test settings.",
+        "Omit upstream README; retain reference library and UI assets.",
+        "Format Python code fences with pinned Ruff; AST equivalence verified for formatter changes."
+      ],
+      "files": {
+        "LICENSE": {
+          "sha256": "7abe19ec9bb73b36141b999b861d24ad855e808bafe0f81e84cce28556f6c297",
+          "upstream_sha256": null
+        },
+        "SKILL.md": {
+          "sha256": "9b5511d1911057a1e4a4e69beaeb77e2743b1b4763226a0668f93e22386c5cbb",
+          "upstream_sha256": "9448cacb65c6237a7c22dc59602667177ecae405524079ae9ff92240590b995a"
+        },
+        "agents/openai.yaml": {
+          "sha256": "51d635deefa254d8cdf6dc56450851b6ec9545cd37f88a4eb4035cf3f2262fff",
+          "upstream_sha256": "51d635deefa254d8cdf6dc56450851b6ec9545cd37f88a4eb4035cf3f2262fff"
+        },
+        "assets/trail-of-bits-mark.svg": {
+          "sha256": "4bf74c789b38dcf6ad762c136b6832363d27ae19fbaa9a18ec18d66ecce6ca05",
+          "upstream_sha256": "4bf74c789b38dcf6ad762c136b6832363d27ae19fbaa9a18ec18d66ecce6ca05"
+        },
+        "references/generating.md": {
+          "sha256": "8e53c4735834cb97e15dd65ac319cd9b387921877cd40c7d043f00f939144fca",
+          "upstream_sha256": "c0e72dfc89babe3c32de718b81b94044362c85e776d7475e950dfeaab78bb58e"
+        },
+        "references/interpreting-failures.md": {
+          "sha256": "dbae7db8773712ba03268a3d56ea5aa6720af0650a5189580bfd88aa2edc3f9a",
+          "upstream_sha256": "dbae7db8773712ba03268a3d56ea5aa6720af0650a5189580bfd88aa2edc3f9a"
+        },
+        "references/libraries.md": {
+          "sha256": "f7218acf8e668130ef3048983472579d04e12030c5401926f666363e5f69c686",
+          "upstream_sha256": "f7218acf8e668130ef3048983472579d04e12030c5401926f666363e5f69c686"
+        },
+        "references/refactoring.md": {
+          "sha256": "55a5bc57e1f765e990c69c9191ba9ed5ff536956db73158730a133e57d4aa885",
+          "upstream_sha256": "6eb5c206f575704791f089608bb06e41d6eed91b9d3c7fb27912f969aed07a18"
+        },
+        "references/reviewing.md": {
+          "sha256": "1f022a5381b64806bcd2ca05c4b18d04c3b74a94e85559a48072c6e9d4ad87d4",
+          "upstream_sha256": "110b08118a1e7b1a2566def6e9d2a0bf43fc2deefce857d2ce3b4382b07bc774"
+        }
+      }
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "repository": "https://github.com/supabase/agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "upstream_path": "skills/supabase-postgres-best-practices",
+      "license": "MIT",
+      "license_evidence": "https://github.com/supabase/agent-skills/blob/c9be0e931b7930f7d02126d04774d904c381e7d7/LICENSE",
+      "reviewed_on": "2026-11-21",
+      "review_scope": "All retained instructions, references and assets inspected; no executable helper scripts.",
+      "status": "adapted-project-skill",
+      "changes": [
+        "Curate six SQL reference files instead of importing the entire operational rule set.",
+        "Rewrite entrypoint with scoped version-aware application guidance.",
+        "Add original security/migration reference covering identity and RLS bypass roles.",
+        "Remove unsubstantiated impact multipliers in retained frontmatter; correct JSONB operator coverage and plan diagnosis.",
+        "Explain queue claims versus recovery/exactly-once behavior."
+      ],
+      "files": {
+        "LICENSE": {
+          "sha256": "b65e575eb4f04a13c187d64e958321298e2ab84d67aa8428819f362056ba292c",
+          "upstream_sha256": null
+        },
+        "SKILL.md": {
+          "sha256": "7ea77658cfe541ef85802f28495d8d955fdd107ba2f4e1c527560f8af369e5cd",
+          "upstream_sha256": "ad65e776f45e761bafc609d3f506c77c1032225aa65e0c4c02f241b8071e5855"
+        },
+        "references/advanced-jsonb-indexing.md": {
+          "sha256": "633b6904d4b92888749f14a7593c340e9ea646b70ec14accf1f7c9151078498a",
+          "upstream_sha256": "24cacf6a8bc35901dd566d24502ce8e57f810a5c196b897e61d52726e521d106"
+        },
+        "references/data-upsert.md": {
+          "sha256": "12eec89e4c77cb9249c5e33dc509da3cdcbda9e8cb74c80469c78ae7ec496137",
+          "upstream_sha256": "2612af83b20a2701dde30ef1f8d7efd26b7e9eef84717226b8f038a2d2150ff7"
+        },
+        "references/lock-skip-locked.md": {
+          "sha256": "0d099d6e1b37443c6071bd8547d757803f2276cd4705c0611bb60755950635be",
+          "upstream_sha256": "6c45077f430f29cd9cd8f448c94d578e827e7bd023fcdaf717a756acb116fa4b"
+        },
+        "references/monitor-explain-analyze.md": {
+          "sha256": "f7287c07df3e41b7e17958f7d4fb2e1e4d03ffc88814aac470564c3819011e44",
+          "upstream_sha256": "4cb67ffbf8e57f2e5b380b0beb4242528b513723ce314a2c2ffcf083bd4203d7"
+        },
+        "references/query-partial-indexes.md": {
+          "sha256": "6c592d585945dd5a713dc0be977c36edeb56473a796e5d5fa0d1d05b4b780b9c",
+          "upstream_sha256": "6448982bc8558c6555284958edc331b29239c6a0130e6b4501dd6d4da607a6dd"
+        },
+        "references/schema-lowercase-identifiers.md": {
+          "sha256": "e0e2fef7c2627484de91ba84b92770d03d94d74aff7255641f2b308d843532a9",
+          "upstream_sha256": "4bc80f70865f2390872591f326c8a6be6456a0aeb5a7e5a2475d7cd9d43059ab"
+        },
+        "references/security-and-migrations.md": {
+          "sha256": "9cbe4cfb21a751a3e2ff88aa33d62c6fba2d24d40488f06f5329ed093fcb2f44",
+          "upstream_sha256": null
+        }
+      }
+    },
+    {
+      "name": "python-performance-optimization",
+      "repository": "https://github.com/wshobson/agents",
+      "commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "upstream_path": "plugins/python-development/skills/python-performance-optimization",
+      "license": "MIT",
+      "license_evidence": "https://github.com/wshobson/agents/blob/42203085cfc5736204bf0f6d436dff7e1da0bf3f/LICENSE",
+      "reviewed_on": "2026-11-21",
+      "review_scope": "All retained instructions, references and assets inspected; no executable helper scripts.",
+      "status": "adapted-project-skill",
+      "changes": [
+        "Use monotonic duration measurement.",
+        "Replace universal speed claims with measurements on the target interpreter.",
+        "Add finite HTTP timeouts and retain allocations in the memory example.",
+        "Link optional advanced references and preserve project dependency workflow.",
+        "Format Python code fences with pinned Ruff; AST equivalence verified for formatter changes."
+      ],
+      "files": {
+        "LICENSE": {
+          "sha256": "f89abb55d9f073f38f1703e4518f0613c788c6174be7f13b8dfe48a1c076c746",
+          "upstream_sha256": null
+        },
+        "SKILL.md": {
+          "sha256": "e6d010d6ece133020286707a8428612424b970b2d9b2f35b6e6fddf450d5d6ad",
+          "upstream_sha256": "807aa725cc2b46b4d68a11a52e5b345be0449e80b7f4b60c32bfd2c35345afb5"
+        },
+        "references/advanced-patterns.md": {
+          "sha256": "49e50a2be692ed4582971e9974b051843b86f61d49b1e074efbe2a35111c02c8",
+          "upstream_sha256": "3109ef651c7591017505aeed1d171fbf9000ee522c1b4dac35f90192974b20f0"
+        },
+        "references/details.md": {
+          "sha256": "38020f09ffbf481a90ec1f4974c197b155ccbe0ee0b11799227e969376deac1f",
+          "upstream_sha256": "8643031fabcbaf555ae1b4e702f1b5159689a31a4b286280d4df2822c9731281"
+        }
+      }
+    }
+  ]
+}

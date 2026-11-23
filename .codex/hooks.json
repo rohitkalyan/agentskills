@@ -1,0 +1,37 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/Cellar/node/25.1.0/bin/node' '/Users/apptestinginfodat/Documents/RohitWorkSpace/agentSkills/bin/agent-skills.mjs' 'hook' 'codex' 'SessionStart' '--project' '/Users/apptestinginfodat/Documents/RohitWorkSpace/agentSkills'",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/Cellar/node/25.1.0/bin/node' '/Users/apptestinginfodat/Documents/RohitWorkSpace/agentSkills/bin/agent-skills.mjs' 'hook' 'codex' 'PreCompact' '--project' '/Users/apptestinginfodat/Documents/RohitWorkSpace/agentSkills'",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/opt/homebrew/Cellar/node/25.1.0/bin/node' '/Users/apptestinginfodat/Documents/RohitWorkSpace/agentSkills/bin/agent-skills.mjs' 'hook' 'codex' 'Stop' '--project' '/Users/apptestinginfodat/Documents/RohitWorkSpace/agentSkills'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
