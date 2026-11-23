@@ -21,5 +21,6 @@ Verified 2026-11-21 on macOS arm64:
 - The one-command install.sh ran npm ci and installed all clients in a disposable empty project without Python.
 - Current workspace migrated from the Python distribution to schema 2; doctor passed and its generated MCP configuration connected to the global npm server.
 - The old Python tool environment and source virtualenv were removed.
+- Fresh GitHub clone, `npm ci`, install-from-Git CLI, all-client setup and doctor succeeded in a temporary project.
 
-No external MCP service accounts or enterprise scanners are configured, and the package has not been published to npm. The GitHub remote is configured; its initial push and GitHub Actions run are pending.
+No external MCP service accounts or enterprise scanners are configured, and the package has not been published to npm. The initial GitHub push to `main` succeeded as commit `ce033a3`. GitHub Actions was not inspected after the push.
